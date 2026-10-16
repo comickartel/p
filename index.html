@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phillips EDU.connect</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f6fc;
+  color: #24304a;
+  line-height: 1.6;
+}
+
+header {
+  background: #10234f;
+  color: white;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header h1 {
+  font-size: 23px;
+}
+
+header p {
+  font-size: 12px;
+  color: #cbd8ff;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 75px 7%;
+  color: white;
+  background: linear-gradient(120deg, #10234f, #315ee7);
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+}
+
+button, .btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 5px 3px;
+}
+
+.primary {
+  background: #315ee7;
+  color: white;
+}
+
+.green {
+  background: #159b68;
+  color: white;
+}
+
+.white {
+  background: white;
+  color: #10234f;
+}
+
+section {
+  padding: 50px 7%;
+}
+
+section h2 {
+  color: #10234f;
+  margin-bottom: 10px;
+}
+
+.intro {
+  margin-bottom: 25px;
+  color: #657087;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 24px;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e5eaf4;
+  box-shadow: 0 5px 18px #10234f0b;
+}
+
+.card h3 {
+  color: #10234f;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin-bottom: 15px;
+  color: #657087;
+}
+
+.emoji {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.classroom {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+}
+
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 20px;
+}
+
+.schedule th, .schedule td {
+  padding: 13px;
+  text-align: left;
+  border-bottom: 1px solid #e5eaf4;
+}
+
+.schedule th {
+  background: #10234f;
+  color: white;
+}
+
+.quiz {
+  max-width: 700px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+}
+
+.question {
+  margin: 20px 0;
+}
+
+.question label {
+  display: block;
+  padding: 7px;
+  cursor: pointer;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #10234f;
+  color: white;
+}
+
+@media (max-width: 750px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 35px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <h1>🎓 Phillips EDU.connect</h1>
+    <p>Learn Anywhere. Achieve Everywhere.</p>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#zoom">Zoom Class</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <h2>Welcome to Phillips EDU.connect!</h2>
+  <p>
+    Your online holiday classroom. Learn new skills, revise your subjects,
+    practise quizzes and meet your teacher online from anywhere.
+  </p>
+  <a class="btn white" href="#subjects">Explore Subjects</a>
+  <a class="btn green" href="#zoom">Join Online Class</a>
+</section>
+
+<section id="subjects">
+  <h2>📚 Our Subjects</h2>
+  <p class="intro">Choose a subject to explore a sample learning activity.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🔢</div>
+      <h3>Mathematics</h3>
+      <p>Practise numbers, multiplication, fractions and problem solving.</p>
+      <button class="primary" onclick="openLesson('Mathematics')">Open Lesson</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🔬</div>
+      <h3>Science</h3>
+      <p>Discover plants, animals, the human body and our environment.</p>
+      <button class="primary" onclick="openLesson('Science')">Open Lesson</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📖</div>
+      <h3>English</h3>
+      <p>Improve reading, spelling, vocabulary and grammar.</p>
+      <button class="primary" onclick="openLesson('English')">Open Lesson</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🌍</div>
+      <h3>Social Studies</h3>
+      <p>Explore geography, history and our communities.</p>
+      <button class="primary" onclick="openLesson('Social Studies')">Open Lesson</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">💻</div>
+      <h3>Computer Studies</h3>
+      <p>Learn about computers, the internet and digital safety.</p>
+      <button class="primary" onclick="openLesson('Computer Studies')">Open Lesson</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">✍️</div>
+      <h3>Revision</h3>
+      <p>Test your knowledge with our interactive practice quiz.</p>
+      <button class="primary" onclick="location.href='#quiz'">Start Quiz</button>
+    </div>
+  </div>
+
+  <div class="card" id="lesson" hidden style="margin-top:20px">
+    <h3 id="lessonTitle"></h3>
+    <p id="lessonText"></p>
+    <button class="primary" onclick="document.getElementById('lesson').hidden=true">Close Lesson</button>
+  </div>
+</section>
+
+<section id="zoom">
+  <h2>🎥 Virtual Classroom</h2>
+  <p class="intro">Join your teacher's live holiday lessons using Zoom.</p>
+
+  <div class="classroom">
+    <h3>Phillips EDU.connect Live Class</h3>
+    <p>Prepare your notebook, check your internet and join your scheduled class.</p>
+    <button class="green" onclick="joinZoom()">Join Zoom Meeting</button>
+    <p style="margin-top:15px">
+      Your teacher must add a real Zoom meeting link in the JavaScript configuration.
+    </p>
+  </div>
+</section>
+
+<section id="schedule">
+  <h2>📅 Holiday Timetable</h2>
+  <p class="intro">Example timetable. Change the subjects and times to suit your students.</p>
+
+  <div style="overflow-x:auto">
+    <table class="schedule">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Subject</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday</td><td>Mathematics</td><td>9:00 AM</td></tr>
+        <tr><td>Tuesday</td><td>English</td><td>10:00 AM</td></tr>
+        <tr><td>Wednesday</td><td>Science</td><td>9:00 AM</td></tr>
+        <tr><td>Thursday</td><td>Social Studies</td><td>10:00 AM</td></tr>
+        <tr><td>Friday</td><td>Revision and Quiz</td><td>9:00 AM</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="quiz">
+  <h2>📝 Student Quiz</h2>
+  <p class="intro">Answer all three questions and submit your answers.</p>
+
+  <div class="quiz">
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. What is 8 × 7?</h3>
+        <label><input type="radio" name="q1" value="a"> 54</label>
+        <label><input type="radio" name="q1" value="b"> 56</label>
+        <label><input type="radio" name="q1" value="c"> 64</label>
+      </div>
+
+      <div class="question">
+        <h3>2. Which planet is called the Red Planet?</h3>
+        <label><input type="radio" name="q2" value="a"> Earth</label>
+        <label><input type="radio" name="q2" value="b"> Mars</label>
+        <label><input type="radio" name="q2" value="c"> Venus</label>
+      </div>
+
+      <div class="question">
+        <h3>3. What is the plural of "child"?</h3>
+        <label><input type="radio" name="q3" value="a"> Childs</label>
+        <label><input type="radio" name="q3" value="b"> Childes</label>
+        <label><input type="radio" name="q3" value="c"> Children</label>
+      </div>
+
+      <button type="submit" class="primary">Submit Answers</button>
+      <button type="reset" class="primary">Try Again</button>
+    </form>
+    <p id="result" aria-live="polite"></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h3>Phillips EDU.connect</h3>
+  <p>Learn Anywhere. Achieve Everywhere.</p>
+  <p>© <span id="year"></span> Phillips EDU.connect</p>
+</footer>
+
+<script>
+// 1. ZOOM CONFIGURATION
+// Replace the example below with your actual Zoom meeting link.
+const ZOOM_MEETING_URL = "https://zoom.us/j/REPLACE_WITH_YOUR_MEETING_ID";
+
+function joinZoom() {
+  if (
+    !/^https:\/\/(?:[a-z0-9-]+\.)?zoom\.us\/j\/[^\s]+$/i.test(ZOOM_MEETING_URL) ||
+    ZOOM_MEETING_URL.includes("REPLACE_WITH")
+  ) {
+    alert("Teacher: Add your real Zoom meeting link in the JavaScript code first.");
+    return;
+  }
+
+  window.open(ZOOM_MEETING_URL, "_blank", "noopener,noreferrer");
+}
+
+// 2. SAMPLE LESSONS
+const lessonData = {
+  "Mathematics": "Practise multiplication, division, fractions and solving maths problems.",
+  "Science": "Study living things, plants, animals and the environment.",
+  "English": "Practise reading, writing, spelling and correct grammar.",
+  "Social Studies": "Learn about geography, history, citizenship and communities.",
+  "Computer Studies": "Discover computer hardware, software and safe internet use."
+};
+
+function openLesson(subject) {
+  document.getElementById("lessonTitle").textContent = subject + " Lesson";
+  document.getElementById("lessonText").textContent = lessonData[subject];
+  document.getElementById("lesson").hidden = false;
+  document.getElementById("lesson").scrollIntoView({ behavior: "smooth" });
+}
+
+// 3. INTERACTIVE QUIZ
+document.getElementById("quizForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const answers = { q1: "b", q2: "b", q3: "c" };
+  let score = 0;
+  let totalAnswered = 0;
+
+  for (const question in answers) {
+    const selected = document.querySelector(
+      'input[name="' + question + '"]:checked'
+    );
+
+    if (selected) {
+      totalAnswered++;
+      if (selected.value === answers[question]) score++;
+    }
+  }
+
+  const result = document.getElementById("result");
+
+  if (totalAnswered < 3) {
+    result.style.color = "#a15c00";
+    result.textContent = "Please answer all questions before submitting.";
+    return;
+  }
+
+  result.style.color = score === 3 ? "green" : "#315ee7";
+  result.textContent = "Your score: " + score + "/3. " +
+    (score === 3 ? "Excellent work! 🎉" : "Good effort! Keep practising.");
+});
+
+document.getElementById("quizForm").addEventListener("reset", function() {
+  document.getElementById("result").textContent = "";
+});
+
+// 4. AUTOMATIC COPYRIGHT YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
